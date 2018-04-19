@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="ajax.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title></title>
+</head>
+
+<body ng-app="">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h2>Datos Importantes</h2>
+        <form name="myForm">
+          <div class="form-group">
+            <label for="usuario">Nombre:</label>
+            <input type="text" name="usuario" class="form-control" id="usuario" value="Yuan-Pi" ng-model="usuario" required>
+          </div>
+          <div class="form-group">
+            <label for="monto">Monto:</label>
+            <input type="text" name="monto" id="monto" class="form-control" ng-model="monto" value="25000000" required>
+          </div>
+
+          <h3>Plazo</h3>
+          <p>El plazo está dado entre 2 y 8 años</p>
+          <div class="form-group">
+            <select class="form-control" name="years">
+              <option value="2">2 años</option>
+              <option value="3">3 años</option>
+              <option value="4">4 años</option>
+              <option value="5">5 años</option>
+              <option value="6">6 años</option>
+              <option value="7">7 años</option>
+              <option value="8">8 años</option>
+            </select>
+          </div>
+          <h3>Periodicidad</h3>
+          <div class="radio">
+            <label><input type="radio" name="Periodicidad" value="12" checked> Mensual</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="Periodicidad" value="4"> Trimestral</label>
+          </div>
+          <div class="radio">
+            <label><input type="radio" name="Periodicidad" value="2"> Semestral </label>
+          </div>
+
+          <h3>Tasa de Interes</h3>
+
+
+          <div class="form-group">
+            <div class="col-sm-10">
+              <label for="n1">Efectivo Anual:</label>
+              <input name="myInput" id="n1" class="form-control input-sm" ng-model="myInput" ng-maxlength="0" ng-disabled="!myForm.myInput2.$valid || !myForm.myInput3.$valid ">
+            </div>
+            <div class="co-sm-2" style="text-align:center">
+              <br>
+              <h4>%</h4>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-10">
+              <label for="n2">Nominal Anual:</label>
+              <input name="myInput2" id="n2" class="form-control input-sm" ng-model="myInput2" ng-maxlength="0" ng-disabled="!myForm.myInput.$valid || !myForm.myInput3.$valid ">
+            </div>
+            <div class="col-sm-2" style="text-align:center">
+              <br>
+              <h4>%</h4>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-10">
+              <label for="n3">Periodico Vencido:</label>
+              <input name="myInput3" id="n3" class="form-control input-sm" ng-model="myInput3" ng-maxlength="0" ng-disabled="!myForm.myInput.$valid|| !myForm.myInput2.$valid">
+            </div>
+            <div class="col-sm-2" style="text-align:center">
+              <br>
+              <h4>%</h4>
+            </div>
+          </div>
+        </form>
+        <br>
+        <br><br>
+        <button type="button" ng-disabled="myForm.monto.$invalid || myForm.usuario.invalid || (myForm.myInput.$valid && myForm.myInput2.$valid && myForm.myInput3.$valid)" class="btn btn-primary btn-block" id="ok" onclick="ajaxConnect(n1.value, n2.value, n3.value, monto.value)">Saber si voy a pasar la materia</button>
+      </div>
+      <div class="col-sm-6">
+        <h2>Resultado</h2>
+        <div class="tabla" id="r"></div>
+      </div>
+    </div>
+    <div class="row">
+      <br>
+      <p>Corporación Universitaria Minuto de Dios (UNIMINUTO)</p>
+      <p>Entrega final de la materia Ingeniería de Software</p>
+      <p>Nombre: Fabian Miranda</p>
+      <p>ID: 444617</p>
+      <p>Este proyecto tiene dos objetivos: 1. Mostrar las tasas de interes dada una. 2. Mostrar las cuotas con sus respectivos datos tomando interés, monto, plazo y periodicidad </p>
+    </div>
+  </div>
+</body>
+
+</html>
