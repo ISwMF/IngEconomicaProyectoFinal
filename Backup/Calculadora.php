@@ -42,4 +42,13 @@ class Calculadora
     {
         $this->EfectivoAnual = ((pow((1 + ($this->PeriodicoVencido / 100)), (360 / $this->Dias))) - 1) * 100;
     }
+    public function calcularInteresPeriodico($dias)
+    {
+        return ((pow(1.3102, ($dias/365)))-1)*100;
+    }
+    public function calcularInteresMoratorio($IP, $Saldo)
+    {
+        $IP =$IP/100;
+        return ($IP * $Saldo);
+    }
 }

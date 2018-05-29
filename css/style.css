@@ -1,0 +1,9 @@
+body {
+  background-color: #e6eeff;
+}
+
+div.tabla {
+  height: 750px;
+  width: 650px;
+  overflow-y: auto;
+}
